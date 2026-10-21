@@ -1,0 +1,15 @@
+name: abtest
+channels:
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+      - dbt-bigquery
+      - google-cloud-bigquery
+      - db-dtypes
+      - pandas
+      - statsmodels
+      - scipy
+      - matplotlib
+      - jupyter
