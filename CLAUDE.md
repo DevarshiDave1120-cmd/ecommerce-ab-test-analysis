@@ -15,7 +15,7 @@ mismatches) before trusting the result. The step-by-step plan lives in `guide.md
   Packages: dbt-bigquery, google-cloud-bigquery, db-dtypes, pandas, statsmodels, scipy, matplotlib, jupyter.
   Recreate from `environment.yml`: `conda env create -f environment.yml`
 - GitHub: https://github.com/DevarshiDave1120-cmd/ecommerce-ab-test-analysis (public), branch `main`
-- Google Cloud project: `ab-test-portfolio` (BigQuery sandbox, location US). Project ID: _TBD_
+- Google Cloud project: `ab-test-portfolio` (BigQuery sandbox, location US). Project ID: `ab-test-portfolio-512322`
 - dbt profile lives in `~/.dbt/profiles.yml` (outside the repo, oauth via gcloud ADC)
 
 ## Rules
