@@ -16,6 +16,10 @@ mismatches) before trusting the result. The step-by-step plan lives in `guide.md
   Recreate from `environment.yml`: `conda env create -f environment.yml`
 - GitHub: https://github.com/DevarshiDave1120-cmd/ecommerce-ab-test-analysis (public), branch `main`
 - Google Cloud project: `ab-test-portfolio` (BigQuery sandbox, location US). Project ID: `ab-test-portfolio-512322`
+  - `raw.ab_data` loaded 2026-10-21 via `bq load --autodetect --skip_leading_rows=1`.
+    **Sandbox expiry: table auto-deletes 2026-12-20** — reload (and re-run dbt) before then, or enable billing.
+  - `bq` needs `gcloud auth login` (user account) in addition to application-default credentials.
+  - In zsh, write `"${P}:raw"` not `$P:raw` — zsh treats `:r` as a modifier.
 - dbt profile lives in `~/.dbt/profiles.yml` (outside the repo, oauth via gcloud ADC)
 
 ## Data quality findings
