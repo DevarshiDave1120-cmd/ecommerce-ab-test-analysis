@@ -1,0 +1,21 @@
+# Python environments (this project uses the conda env "abtest", which lives outside the repo)
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+
+# dbt build artifacts
+target/
+dbt_packages/
+logs/
+
+# Credentials: never commit Google service-account keys or secrets
+*.json
+.env
+
+# Raw data: link to the Kaggle source instead of committing the CSV
+data/raw/
+data/**/*.csv
+
+# Local-only notes and OS clutter
+guide.md
+.DS_Store
