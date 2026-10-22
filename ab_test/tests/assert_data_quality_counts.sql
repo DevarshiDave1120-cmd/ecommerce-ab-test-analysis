@@ -1,5 +1,5 @@
--- Fails if any data-quality count differs from the values recorded in CLAUDE.md,
--- or if a step is missing or unexpected.
+-- Fails if any data-quality count differs from the expected values
+-- (README, "Data quality findings"), or if a step is missing or unexpected.
 WITH expected AS (
   SELECT * FROM UNNEST([
     STRUCT(1 AS step, 294478 AS value),  -- raw rows

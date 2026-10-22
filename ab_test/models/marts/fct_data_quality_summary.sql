@@ -1,7 +1,7 @@
 -- Data-quality funnel for the dashboard: one row per metric, in display order.
 -- Same counts as the data-quality cell in notebook step 6a, plus the final user count
--- of each intermediate model. Checked against CLAUDE.md by
--- tests/assert_data_quality_counts_match_claude_md.sql.
+-- of each intermediate model. Checked against the expected counts by
+-- tests/assert_data_quality_counts.sql.
 WITH per_user AS (
   SELECT
     user_id,

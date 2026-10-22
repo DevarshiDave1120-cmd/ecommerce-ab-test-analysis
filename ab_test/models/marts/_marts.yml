@@ -5,7 +5,8 @@ models:
     description: >
       Data-quality funnel for the dashboard, one row per metric in display order:
       raw rows and users, mismatches, repeat users, and final users in each
-      intermediate model. Values are checked against CLAUDE.md.
+      intermediate model. Values are checked against the expected counts
+      by tests/assert_data_quality_counts.sql.
     columns:
       - name: step
         data_tests: [unique, not_null]

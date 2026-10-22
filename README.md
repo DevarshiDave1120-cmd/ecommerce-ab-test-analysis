@@ -145,7 +145,7 @@ Kaggle CSV ──bq load──▶ BigQuery raw.ab_data
    ```bash
    cd ab_test && dbt build
    ```
-   Expected: PASS=23, WARN=1. To use your own data, update the expected counts in `tests/assert_data_quality_counts_match_claude_md.sql`.
+   Expected: PASS=23, WARN=1. To use your own data, update the expected counts in `tests/assert_data_quality_counts.sql`.
 6. **Notebook:** set `PROJECT` in the first code cell to your project ID, then run all cells in `notebooks/ab_test_analysis.ipynb`.
 
 > **BigQuery sandbox expiry:** sandbox tables delete themselves automatically (60 days by default). This project's tables expire on **2026-12-20**, after which the live dashboard goes blank; the screenshot above is the permanent record. To restore it, re-run steps 4 and 5, or enable billing on the project (usage at this size stays within the free tier).
