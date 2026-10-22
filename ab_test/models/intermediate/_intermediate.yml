@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: int_ab_users_clean
+    description: >
+      Main analysis. One row per user; every user who appears more than once in raw
+      (they may have seen both pages) is excluded entirely. Expected 286,690 users.
+    columns:
+      - name: user_id
+        data_tests: [unique, not_null]
+      - name: experiment_group
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['control', 'treatment']
+      - name: converted
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+                quote: false
+
+  - name: int_ab_users_sensitivity
+    description: >
+      Sensitivity check. One row per user; mismatched rows dropped, then each user's
+      first remaining event kept, so repeat users stay in. Expected 290,584 users.
+    columns:
+      - name: user_id
+        data_tests: [unique, not_null]
+      - name: experiment_group
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['control', 'treatment']
+      - name: converted
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+                quote: false

@@ -1,0 +1,13 @@
+version: 2
+
+models:
+  - name: stg_ab_events
+    description: >
+      One row per raw event, renamed and typed, with is_assignment_mismatch flagged.
+      No rows removed. user_id is deliberately NOT tested for uniqueness here:
+      3,894 users appear twice in raw, which is what the intermediate layer handles.
+    columns:
+      - name: user_id
+        data_tests: [not_null]
+      - name: event_ts
+        data_tests: [not_null]
