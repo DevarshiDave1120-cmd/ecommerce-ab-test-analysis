@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: fct_data_quality_summary
+    description: >
+      Data-quality funnel for the dashboard, one row per metric in display order:
+      raw rows and users, mismatches, repeat users, and final users in each
+      intermediate model. Values are checked against CLAUDE.md.
+    columns:
+      - name: step
+        data_tests: [unique, not_null]
+      - name: metric
+        data_tests: [unique, not_null]
+      - name: value
+        data_tests: [not_null]
