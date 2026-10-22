@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: raw
+    description: Raw uploads, loaded untouched with bq load (see sql/01_raw_profile.sql).
+    schema: raw
+    tables:
+      - name: ab_data
+        description: >
+          Kaggle/Udacity e-commerce landing-page A/B test, one row per logged page view.
+          294,478 rows, 290,584 users; 3,893 rows have a group/landing_page mismatch.
