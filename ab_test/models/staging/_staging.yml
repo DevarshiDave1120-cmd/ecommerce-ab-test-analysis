@@ -4,10 +4,15 @@ models:
   - name: stg_ab_events
     description: >
       One row per raw event, renamed and typed, with is_assignment_mismatch flagged.
-      No rows removed. user_id is deliberately NOT tested for uniqueness here:
-      3,894 users appear twice in raw, which is what the intermediate layer handles.
+      No rows removed. user_id uniqueness is tested at severity warn: 3,894 users
+      appear twice in raw, so the warning documents the duplicates on every build
+      without blocking it. The intermediate layer removes them (and tests unique as an error).
     columns:
       - name: user_id
-        data_tests: [not_null]
+        data_tests:
+          - not_null
+          - unique:
+              config:
+                severity: warn  # expected: 3,894 duplicated user_ids
       - name: event_ts
         data_tests: [not_null]
